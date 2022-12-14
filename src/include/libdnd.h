@@ -6,5 +6,5 @@
 #include "raygui.h"
 
 void draws();
-int checkclose(bool Button001Pressed);
+int checkclose(bool Button001Pressed, int *windowWidth, int *windowHeight);
 #endif

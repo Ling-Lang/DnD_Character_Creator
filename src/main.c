@@ -7,8 +7,8 @@
 
 int main(void)
 {
-  static int windowHeight = 320;
-  static int windowWidth = 920;
+  int windowHeight = 320;
+  int windowWidth = 920;
   bool Button001Pressed = false;
   InitWindow(windowWidth,windowHeight,"DnD character creator");
   Rectangle Window = (Rectangle){15,25,windowWidth-30, windowHeight-50}; //x,y,width,height
@@ -18,17 +18,14 @@ int main(void)
   SetTargetFPS(60);
   while(!WindowShouldClose())
   {
-   int i = checkclose(Button001Pressed);
-   if(checkclose(Button001Pressed) == 0)
-   {
-    return;
-   }
-
+    checkclose(Button001Pressed, &windowWidth, &windowHeight);
+    GetWindowScaleDPI();
+    SetWindowSize(windowWidth,windowHeight);
 
     BeginDrawing();
     ClearBackground(BLACK);
     DrawText("u smoll", 10, 10, 20, WHITE);
-    GuiDrawRectangle(Window, 10, BLUE, GREEN);
+    GuiDrawRectangle(Window, 10, BLUE, GREEN); 
     DrawText("HI FROM LINUX", 40, 50, 20, BLACK);
     draws();
     GuiWelcome(&state);
