@@ -106,3 +106,11 @@ $(PROJECT_NAME): $(OBJS)
 # NOTE: This pattern will compile every module defined on $(OBJS)
 %.o: %.c
 	$(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE_PATHS) -D$(PLATFORM)
+
+help:
+	@echo Default platform is DESKTOP to compile normally type
+	@echo make PLATFORM=DESKTOP
+	@echo Rules are the following
+	@echo all
+	@echo clean not implemented yet due to technical difficulties
+	@echo re same as above
