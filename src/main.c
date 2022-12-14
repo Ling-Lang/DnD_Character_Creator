@@ -7,12 +7,12 @@
 
 int main(void)
 {
-  static int windowHeight = 720;
-  static int windowWidth = 720;
+  static int windowHeight = 320;
+  static int windowWidth = 920;
   bool Button001Pressed = false;
-  InitWindow(windowHeight,windowWidth,"DnD character creator");
-  Rectangle Window = (Rectangle){0,0,windowHeight-30, windowWidth -50};
-  Rectangle button = (Rectangle){200,300,176,56};
+  InitWindow(windowWidth,windowHeight,"DnD character creator");
+  Rectangle Window = (Rectangle){15,25,windowWidth-30, windowHeight-50}; //x,y,width,height
+  Rectangle button = (Rectangle){(windowWidth/2)-88,(windowHeight/2)-28,176,56};
   GuiWelcomeState state = InitGuiWelcome();
 
   SetTargetFPS(60);
@@ -36,3 +36,4 @@ int main(void)
     EndDrawing();
   }
 }
+//Ich mag Pommes
