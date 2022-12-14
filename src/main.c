@@ -15,7 +15,7 @@ int main(void)
     BeginDrawing();
     ClearBackground(BLACK);
     DrawText("u smoll", 10, 10, 20, WHITE);
-    GuiDrawRectangle(Window, 10, RED, WHITE);
+    GuiDrawRectangle(Window, 10, RED, GRAY);
     EndDrawing();
   }
 }
