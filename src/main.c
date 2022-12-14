@@ -14,7 +14,7 @@ int main(void)
   {
     BeginDrawing();
     ClearBackground(BLACK);
-    DrawText("u smol", 10, 10, 20, WHITE);
+    DrawText("u smoll", 10, 10, 20, WHITE);
     EndDrawing();
   }
 }

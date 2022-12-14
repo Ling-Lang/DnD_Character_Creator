@@ -1,0 +1,10 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/dylan/Documents/_Projects/C/dnd'
+make dnd_character_creator
+ 
+make[1]: Entering directory '/home/dylan/Documents/_Projects/C/dnd'
+make[1]: 'dnd_character_creator' is up to date.
+make[1]: Leaving directory '/home/dylan/Documents/_Projects/C/dnd'
+ 
+make: Leaving directory '/home/dylan/Documents/_Projects/C/dnd'
+ 
