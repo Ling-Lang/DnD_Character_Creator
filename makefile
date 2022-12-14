@@ -82,6 +82,7 @@ endif
 
 # Define all source files 
 PROJECT_SOURCE_FILES ?= src/main.c \
+						src/test.c
 
 
 #Define all object files from source files
@@ -94,7 +95,7 @@ all:
 
 # Project targed defined by PROJECT_NAME
 $(PROJECT_NAME): $(OBJS)
-	$(CC) -o $(PROJECT_BUILD_PATH)/$(PROJECT_NAME)$(EXT) $(OBJS) $(CFLAGS) $(INCLUDE_PATHS) $(LDLFLAGS) $(LDLIBS) -D$(PLATFORM) 
+	$(CC) -o $(PROJECT_BUILD_PATH)/$(PROJECT_NAME)$(EXT) $(OBJS) $(CFLAGS) $(INCLUDE_PATHS) $(LDLFLAGS)  $(LDLIBS) -D$(PLATFORM) 
 
 # Compile source files
 # NOTE: This pattern will compile every module defined on $(OBJS)
