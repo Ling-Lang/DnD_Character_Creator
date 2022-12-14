@@ -1,4 +1,5 @@
 #include "include/libdnd.h"
+#include "include/raylib.h"
 
 int main(void)
 {
@@ -15,7 +16,8 @@ int main(void)
     BeginDrawing();
     ClearBackground(BLACK);
     DrawText("u smoll", 10, 10, 20, WHITE);
-    GuiDrawRectangle(Window, 10, RED, GRAY);
+    GuiDrawRectangle(Window, 10, BLUE, GREEN);
+    DrawText("HI FROM LINUX", 40, 50, 20, BLACK);
     EndDrawing();
   }
 }
