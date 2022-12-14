@@ -22,11 +22,6 @@
 *.la
 *.lo
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
 
 # Executables
 *.exe
@@ -35,6 +30,7 @@
 *.i*86
 *.x86_64
 *.hex
+dnd_character_creator
 
 # Debug files
 *.dSYM/
