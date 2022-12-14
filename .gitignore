@@ -45,3 +45,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# makefile logs
+dryrun.log
+targets.log
