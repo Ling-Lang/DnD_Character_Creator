@@ -11,10 +11,10 @@ int main(void)
   SetTargetFPS(60);
   while(!WindowShouldClose())
   {
-
+    
     BeginDrawing();
     ClearBackground(BLACK);
-
+    DrawText("Hello World", 0, 0, 20, WHITE);
     EndDrawing();
   }
 }

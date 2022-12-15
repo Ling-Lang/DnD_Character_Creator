@@ -9,4 +9,5 @@ int *getRatio(int *width, int *height);
 void startUpWindow();
 int getGCF(int a, int b);
 void setSize(int *width, int *height);
+void takeScreenshot();
 #endif
