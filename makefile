@@ -1,5 +1,8 @@
 .PHONY: all clean debug
 
+PROJECT_SOURCE_FILES ?= src/main.c \
+						src/window_startup.c \
+
 PROJECT_NAME 		?= dnd_character_creator
 PROJECT_VERSION 	?= 0.1
 PROJECT_BUILD_PATH 	?= .
@@ -81,8 +84,6 @@ endif
 ########################################################################
 
 # Define all source files 
-PROJECT_SOURCE_FILES ?= src/main.c \
-						src/test.c
 
 
 #Define all object files from source files

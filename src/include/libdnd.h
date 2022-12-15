@@ -5,6 +5,8 @@
 #include "raylib.h"
 #include "raygui.h"
 
-void draws();
-int checkclose(bool Button001Pressed, int *windowWidth, int *windowHeight);
+int *getRatio(int *width, int *height);
+void startUpWindow();
+int getGCF(int a, int b);
+void setSize(int *width, int *height);
 #endif
