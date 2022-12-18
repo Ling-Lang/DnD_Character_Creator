@@ -1,17 +1,17 @@
 /*******************************************************************************************
 *
-*   Welcome v1.0.0 - Tool Description
+*   WelcomeWindow v1.0.0 - Tool Description
 *
 *   MODULE USAGE:
-*       #define GUI_WELCOME_IMPLEMENTATION
-*       #include "gui_welcome.h"
+*       #define GUI_WELCOME_WINDOW_IMPLEMENTATION
+*       #include "gui_welcome_window.h"
 *
-*       INIT: GuiWelcomeState state = InitGuiWelcome();
-*       DRAW: GuiWelcome(&state);
+*       INIT: GuiWelcomeWindowState state = InitGuiWelcomeWindow();
+*       DRAW: GuiWelcomeWindow(&state);
 *
 *   LICENSE: Propietary License
 *
-*   Copyright (c) 2022 ling-lang. All Rights Reserved.
+*   Copyright (c) 2022 Ling-Lang. All Rights Reserved.
 *
 *   Unauthorized copying of this file, via any medium is strictly prohibited
 *   This project is proprietary and confidential unless the owner allows
@@ -27,18 +27,21 @@
 
 #include <string.h>     // Required for: strcpy()
 
-#ifndef GUI_WELCOME_H
-#define GUI_WELCOME_H
+#ifndef GUI_WELCOME_WINDOW_H
+#define GUI_WELCOME_WINDOW_H
 
 typedef struct {
     bool WindowBox000Active;
+    bool CheckBoxEx002Checked;
+    bool TextmultiBox003EditMode;
+    char TextmultiBox003Text[128];
 
-    Rectangle layoutRecs[4];
+    Rectangle layoutRecs[5];
 
     // Custom state variables (depend on development software)
     // NOTE: This variables should be added manually if required
 
-} GuiWelcomeState;
+} GuiWelcomeWindowState;
 
 #ifdef __cplusplus
 extern "C" {            // Prevents name mangling of functions
@@ -57,23 +60,22 @@ extern "C" {            // Prevents name mangling of functions
 //----------------------------------------------------------------------------------
 // Module Functions Declaration
 //----------------------------------------------------------------------------------
-GuiWelcomeState InitGuiWelcome(void);
-void GuiWelcome(GuiWelcomeState *state);
-static void Button001();
-static void Button003();
+GuiWelcomeWindowState InitGuiWelcomeWindow(void);
+void GuiWelcomeWindow(GuiWelcomeWindowState *state);
+static void Button004();
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // GUI_WELCOME_H
+#endif // GUI_WELCOME_WINDOW_H
 
 /***********************************************************************************
 *
-*   GUI_WELCOME IMPLEMENTATION
+*   GUI_WELCOME_WINDOW IMPLEMENTATION
 *
 ************************************************************************************/
-#if defined(GUI_WELCOME_IMPLEMENTATION)
+#if defined(GUI_WELCOME_WINDOW_IMPLEMENTATION)
 
 #include "raygui.h"
 
@@ -90,40 +92,41 @@ static void Button003();
 //----------------------------------------------------------------------------------
 // Module Functions Definition
 //----------------------------------------------------------------------------------
-GuiWelcomeState InitGuiWelcome(void)
+GuiWelcomeWindowState InitGuiWelcomeWindow(void)
 {
-    GuiWelcomeState state = { 0 };
+    GuiWelcomeWindowState state = { 0 };
 
     state.WindowBox000Active = true;
+    state.CheckBoxEx002Checked = false;
+    state.TextmultiBox003EditMode = false;
+    strcpy(state.TextmultiBox003Text, "Label");
 
-    state.layoutRecs[0] = (Rectangle){ 344, 176, 424, 248 };
-    state.layoutRecs[1] = (Rectangle){ 376, 376, 136, 32 };
-    state.layoutRecs[2] = (Rectangle){ 376, 216, 360, 128 };
-    state.layoutRecs[3] = (Rectangle){ 592, 376, 136, 32 };
+    state.layoutRecs[0] = (Rectangle){ 416, 176, 424, 240 };
+    state.layoutRecs[1] = (Rectangle){ 432, 200, 280, 32 };
+    state.layoutRecs[2] = (Rectangle){ 480, 360, 24, 24 };
+    state.layoutRecs[3] = (Rectangle){ 480, 240, 328, 112 };
+    state.layoutRecs[4] = (Rectangle){ 688, 360, 120, 24 };
 
     // Custom variables initialization
 
     return state;
 }
-static void Button001()
+static void Button004()
 {
-    // TODO: Implement control logic
-}
-static void Button003()
-{
-    // TODO: Implement control logic
+        
 }
 
 
-void GuiWelcome(GuiWelcomeState *state)
+void GuiWelcomeWindow(GuiWelcomeWindowState *state)
 {
     if (state->WindowBox000Active)
     {
-        state->WindowBox000Active = !GuiWindowBox(state->layoutRecs[0], "SAMPLE TEXT");
-        if (GuiButton(state->layoutRecs[1], "SAMPLE TEXT")) Button001(); 
-        GuiLabel(state->layoutRecs[2], "SAMPLE TEXT");
-        if (GuiButton(state->layoutRecs[3], "SAMPLE TEXT")) Button003(); 
+        state->WindowBox000Active = !GuiWindowBox(state->layoutRecs[0], "Welcome");
+        GuiLabel(state->layoutRecs[1], "Label");
+        state->CheckBoxEx002Checked = GuiCheckBox(state->layoutRecs[2], "CheckBox", state->CheckBoxEx002Checked);
+        if (GuiTextBoxMulti(state->layoutRecs[3], state->TextmultiBox003Text, 128, state->TextmultiBox003EditMode)) state->TextmultiBox003EditMode = !state->TextmultiBox003EditMode;
+        if (GuiButton(state->layoutRecs[4], "Close")) Button004(); 
     }
 }
 
-#endif // GUI_WELCOME_IMPLEMENTATION
+#endif // GUI_WELCOME_WINDOW_IMPLEMENTATION

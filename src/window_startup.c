@@ -1,12 +1,9 @@
 #include "include/libdnd.h"
 
-void startUpWindow()
+void startUpWindow(int *w, int *h)
 {
-    InitWindow(0, 0, "initializing");
-    int w = GetMonitorWidth(0);
-    int h = GetMonitorHeight(0);
-    int *ratio = getRatio(&w, &h);
-    setSize(&w, &h);
+    int *ratio = getRatio(&*w, &*h);
+    setSize(&*w, &*h);
 
     printf("Current monitor: %d\n", GetCurrentMonitor());
     printf("ratio: %d:%d\n", ratio[0], ratio[1]);
@@ -41,7 +38,6 @@ int *getRatio(int *width, int *height)
     b = *height / GCF;
     arr[0] = a;
     arr[1] = b;
-    // printf("a: %d\tb: %d\tarr: %d", a, b, arr[0]);
     return arr;
 }
 
@@ -54,7 +50,5 @@ int getGCF(int a, int b)
         b = a % b;
         a = temp;
     }
-    // free(temp);
-    // free(b);
     return a;
 }

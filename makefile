@@ -2,6 +2,7 @@
 
 PROJECT_SOURCE_FILES ?= src/main.c \
 						src/window_startup.c \
+						src/startup_window.c \
 
 PROJECT_NAME 		?= dnd_character_creator
 PROJECT_VERSION 	?= 0.1
@@ -102,6 +103,22 @@ $(PROJECT_NAME): $(OBJS)
 # NOTE: This pattern will compile every module defined on $(OBJS)
 %.o: %.c
 	$(CC) -c $< -o $@ $(CFLAGS) $(INCLUDE_PATHS) -D$(PLATFORM)
+
+clean:
+ifeq ($(OS), Windows_NT)
+	del src\*.o
+	del $(PROJECT_NAME).exe
+endif
+ifeq ($(PLATFORM_OS), Linux)
+	rm src/*.o
+	rm $(PROJECT_NAME)
+endif
+ifeq ($(PLATFORM_OS), OSX)
+	rm src/*.o
+	rm $(PROJECT_NAME)
+endif
+
+re: clean all
 
 help:
 	@echo Default platform is DESKTOP to compile normally type
