@@ -11,5 +11,4 @@ void startUpWindow(int *w, int *h);
 int getGCF(int a, int b);
 void setSize(int *width, int *height);
 void init_welcome_window(int width, int height, bool *is_active, bool *checked);
-void takeScreenshot();
 #endif

@@ -1,18 +1,17 @@
 #include "include/libdnd.h"
 
 static void Button002(bool *is_active, bool *checked);
+
 void init_welcome_window(int width, int height, bool *is_active, bool *checked)
 {
     int windowWidth = 504;
     int windowHeight = 240;
     
     bool WindowBox000Active = true;
-    bool TextmultiBox003EditMode = false;
-    char TextmultiBox003Text[128] = "SAMPLE TEXT";
 
 
-    printf("width - windowidth: %d\n", width - windowWidth);
-    printf("height - windowHeight: %d\n", height - windowHeight);
+    // printf("width - windowidth: %d\n", width - windowWidth);
+    // printf("height - windowHeight: %d\n", height - windowHeight);
 
     Rectangle WindowBox = (Rectangle){ (width - windowWidth) / 2, (height - windowHeight) / 2, windowWidth, windowHeight };
     Rectangle CheckBox = (Rectangle){ 424 - ((width - windowWidth) / 2) + 48, 344 + 12, 24, 24 };

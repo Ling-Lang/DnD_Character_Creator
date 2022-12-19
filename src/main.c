@@ -3,8 +3,6 @@
 #include "include/libdnd.h"
 
 
-
-
 int main(void)
 {
   InitWindow(0, 0, "initializing");
@@ -13,6 +11,7 @@ int main(void)
   bool checked = false;
   int width = GetMonitorWidth(0);
   int height = GetMonitorHeight(0);
+  char *clipboard = GetClipboardText();
 
 
   startUpWindow(&width, &height);
@@ -27,7 +26,7 @@ int main(void)
     {
       init_welcome_window(width, height, &is_active, &checked);
     }
-    EndDrawing();(width - windodWidth) / 2
+    EndDrawing();
     // printf("is_checked: %d, is_active: %d\n", checked, is_active);
   }
 }
